@@ -1,6 +1,6 @@
 FROM golang:1.15.2
 
-WORKDIR /mybot/src/mybot
+WORKDIR /go/src/mybot
 COPY . .
 
 RUN go get -d -v ./...
