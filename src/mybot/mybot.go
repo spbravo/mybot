@@ -37,7 +37,7 @@ import (
 
 func main() {
 	if len(os.Args) != 3 {
-		fmt.Fprintf(os.Stderr, "usage: mybot slack-bot-token aemet-API-Key\n")
+		fmt.Fprintf(os.Stderr, "usage: mybot slack-bot-token aemet-API-KEY\n")
 		os.Exit(1)
 	}
 
@@ -61,7 +61,7 @@ func main() {
 				go func(m Message) {
 					//m.Text = getQuote(parts[2])
 					url := fmt.Sprintf("https://opendata.aemet.es/opendata/api/observacion/convencional/datos/estacion/B228/?api_key=%v",os.Args[2])
-					//m.Text = recuperaDatos("https://opendata.aemet.es/opendata/api/observacion/convencional/datos/estacion/B228/?api_key=eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzcGJyYXZvQGdtYWlsLmNvbSIsImp0aSI6IjgyNGM1Y2UzLWFmNzYtNDk0NS1hZDBmLTdhMDk1ZTIyMzJkZCIsImlzcyI6IkFFTUVUIiwiaWF0IjoxNTA5NTU2OTY5LCJ1c2VySWQiOiI4MjRjNWNlMy1hZjc2LTQ5NDUtYWQwZi03YTA5NWUyMjMyZGQiLCJyb2xlIjoiIn0.XAEUT7p_9sXrkavMunL9CtQySwUWOicCIbGfsYxdVZk")
+					
 					m.Text = recuperaDatos(url)
 					postMessage(ws, m)
 				}(m)
